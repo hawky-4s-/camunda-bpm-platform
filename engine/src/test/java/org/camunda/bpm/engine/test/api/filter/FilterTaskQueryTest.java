@@ -271,6 +271,11 @@ public class FilterTaskQueryTest extends PluggableProcessEngineTestCase {
     assertEquals(testOrderBy, query.getOrderBy());
   }
 
+  public void testTaskQueryByFollowUpBeforeOrNotExistent() {
+
+
+  }
+
   public void testTaskQueryCandidateUser() {
     TaskQueryImpl query = new TaskQueryImpl();
     query.taskCandidateUser(testUser.getId());
