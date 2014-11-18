@@ -13,10 +13,9 @@
 
 package org.camunda.bpm.engine.rest.dto.runtime;
 
-import java.util.Map;
-
-import javax.ws.rs.core.Response.Status;
-
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.camunda.bpm.engine.EntityTypes;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.filter.Filter;
@@ -24,9 +23,8 @@ import org.camunda.bpm.engine.query.Query;
 import org.camunda.bpm.engine.rest.dto.AbstractQueryDto;
 import org.camunda.bpm.engine.rest.dto.task.TaskQueryDto;
 import org.camunda.bpm.engine.rest.exception.InvalidRequestException;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import javax.ws.rs.core.Response.Status;
+import java.util.Map;
 
 public class FilterDto {
 
@@ -79,7 +77,7 @@ public class FilterDto {
   public AbstractQueryDto<?> resolveQuery(ObjectMapper objectMapper) {
     if (resolvedQuery == null) {
       try {
-        this.resolvedQuery = objectMapper.readValue(query, TaskQueryDto.class);
+        this.resolvedQuery = objectMapper.readValue(query.toString(), TaskQueryDto.class);
       } catch (Exception e) {
         throw new InvalidRequestException(Status.BAD_REQUEST, e, "Unable to convert query");
       }

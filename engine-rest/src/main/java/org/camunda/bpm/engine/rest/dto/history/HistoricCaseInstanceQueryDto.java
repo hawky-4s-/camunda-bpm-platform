@@ -12,26 +12,22 @@
  */
 package org.camunda.bpm.engine.rest.dto.history;
 
-import static javax.ws.rs.core.Response.Status;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-import javax.ws.rs.core.MultivaluedMap;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.history.HistoricCaseInstanceQuery;
 import org.camunda.bpm.engine.rest.dto.AbstractQueryDto;
 import org.camunda.bpm.engine.rest.dto.CamundaQueryParam;
 import org.camunda.bpm.engine.rest.dto.VariableQueryParameterDto;
-import org.camunda.bpm.engine.rest.dto.converter.BooleanConverter;
-import org.camunda.bpm.engine.rest.dto.converter.DateConverter;
-import org.camunda.bpm.engine.rest.dto.converter.StringListConverter;
-import org.camunda.bpm.engine.rest.dto.converter.StringSetConverter;
-import org.camunda.bpm.engine.rest.dto.converter.VariableListConverter;
+import org.camunda.bpm.engine.rest.dto.converter.*;
 import org.camunda.bpm.engine.rest.exception.InvalidRequestException;
-import org.codehaus.jackson.map.ObjectMapper;
+
+import javax.ws.rs.core.MultivaluedMap;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
+import static javax.ws.rs.core.Response.Status;
 
 public class HistoricCaseInstanceQueryDto extends AbstractQueryDto<HistoricCaseInstanceQuery> {
 

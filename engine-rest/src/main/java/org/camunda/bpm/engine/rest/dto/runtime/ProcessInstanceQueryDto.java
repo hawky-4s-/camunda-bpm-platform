@@ -12,13 +12,7 @@
  */
 package org.camunda.bpm.engine.rest.dto.runtime;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response.Status;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.rest.dto.AbstractQueryDto;
 import org.camunda.bpm.engine.rest.dto.CamundaQueryParam;
@@ -28,7 +22,12 @@ import org.camunda.bpm.engine.rest.dto.converter.StringSetConverter;
 import org.camunda.bpm.engine.rest.dto.converter.VariableListConverter;
 import org.camunda.bpm.engine.rest.exception.InvalidRequestException;
 import org.camunda.bpm.engine.runtime.ProcessInstanceQuery;
-import org.codehaus.jackson.map.ObjectMapper;
+
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response.Status;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class ProcessInstanceQueryDto extends AbstractQueryDto<ProcessInstanceQuery> {
 

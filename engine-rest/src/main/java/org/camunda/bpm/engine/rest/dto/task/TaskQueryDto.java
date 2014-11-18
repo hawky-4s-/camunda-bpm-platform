@@ -12,14 +12,8 @@
  */
 package org.camunda.bpm.engine.rest.dto.task;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response.Status;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.impl.TaskQueryImpl;
 import org.camunda.bpm.engine.impl.TaskQueryVariableValue;
@@ -28,18 +22,17 @@ import org.camunda.bpm.engine.query.Query;
 import org.camunda.bpm.engine.rest.dto.AbstractQueryDto;
 import org.camunda.bpm.engine.rest.dto.CamundaQueryParam;
 import org.camunda.bpm.engine.rest.dto.VariableQueryParameterDto;
-import org.camunda.bpm.engine.rest.dto.converter.BooleanConverter;
-import org.camunda.bpm.engine.rest.dto.converter.DateConverter;
-import org.camunda.bpm.engine.rest.dto.converter.DelegationStateConverter;
-import org.camunda.bpm.engine.rest.dto.converter.IntegerConverter;
-import org.camunda.bpm.engine.rest.dto.converter.StringArrayConverter;
-import org.camunda.bpm.engine.rest.dto.converter.StringListConverter;
-import org.camunda.bpm.engine.rest.dto.converter.VariableListConverter;
+import org.camunda.bpm.engine.rest.dto.converter.*;
 import org.camunda.bpm.engine.rest.exception.InvalidRequestException;
 import org.camunda.bpm.engine.task.DelegationState;
 import org.camunda.bpm.engine.task.TaskQuery;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response.Status;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class TaskQueryDto extends AbstractQueryDto<TaskQuery> {
@@ -899,7 +892,7 @@ public class TaskQueryDto extends AbstractQueryDto<TaskQuery> {
       query.followUpBeforeOrNotExistent(followUpBeforeOrNotExistent);
     }
     if (followUpBeforeOrNotExistentExpression != null) {
-      query.followUpBeforeOrNotExistentExpression(followUpBeforeOrNotExistentExpression);
+//      query.followUpBeforeOrNotExistentExpression(followUpBeforeOrNotExistentExpression);
     }
     if (followUpDate != null) {
       query.followUpDate(followUpDate);

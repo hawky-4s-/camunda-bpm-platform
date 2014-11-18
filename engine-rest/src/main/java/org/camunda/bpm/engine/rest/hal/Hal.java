@@ -12,17 +12,16 @@
  */
 package org.camunda.bpm.engine.rest.hal;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.ws.rs.core.MediaType;
-
 import org.camunda.bpm.engine.rest.CaseDefinitionRestService;
 import org.camunda.bpm.engine.rest.ProcessDefinitionRestService;
 import org.camunda.bpm.engine.rest.UserRestService;
 import org.camunda.bpm.engine.rest.hal.processDefinition.HalCaseDefinitionResolver;
 import org.camunda.bpm.engine.rest.hal.processDefinition.HalProcessDefinitionResolver;
 import org.camunda.bpm.engine.rest.hal.user.HalUserResolver;
+
+import javax.ws.rs.core.MediaType;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Daniel Meyer

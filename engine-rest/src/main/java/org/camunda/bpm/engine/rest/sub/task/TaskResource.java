@@ -12,28 +12,17 @@
  */
 package org.camunda.bpm.engine.rest.sub.task;
 
-import java.util.List;
-import java.util.Map;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import org.camunda.bpm.engine.rest.dto.VariableValueDto;
+import org.camunda.bpm.engine.rest.dto.task.*;
+import org.camunda.bpm.engine.rest.hal.Hal;
+import org.camunda.bpm.engine.rest.sub.VariableResource;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
-
-import org.camunda.bpm.engine.rest.dto.VariableValueDto;
-import org.camunda.bpm.engine.rest.dto.task.CompleteTaskDto;
-import org.camunda.bpm.engine.rest.dto.task.FormDto;
-import org.camunda.bpm.engine.rest.dto.task.IdentityLinkDto;
-import org.camunda.bpm.engine.rest.dto.task.TaskDto;
-import org.camunda.bpm.engine.rest.dto.task.UserIdDto;
-import org.camunda.bpm.engine.rest.hal.Hal;
-import org.camunda.bpm.engine.rest.sub.VariableResource;
+import java.util.List;
+import java.util.Map;
 
 public interface TaskResource {
 

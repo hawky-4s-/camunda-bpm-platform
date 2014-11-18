@@ -12,18 +12,17 @@
  */
 package org.camunda.bpm.engine.rest.dto.authorization;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.ws.rs.core.MultivaluedMap;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.authorization.AuthorizationQuery;
 import org.camunda.bpm.engine.rest.dto.AbstractQueryDto;
 import org.camunda.bpm.engine.rest.dto.CamundaQueryParam;
 import org.camunda.bpm.engine.rest.dto.converter.IntegerConverter;
 import org.camunda.bpm.engine.rest.dto.converter.StringArrayConverter;
-import org.codehaus.jackson.map.ObjectMapper;
+
+import javax.ws.rs.core.MultivaluedMap;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *

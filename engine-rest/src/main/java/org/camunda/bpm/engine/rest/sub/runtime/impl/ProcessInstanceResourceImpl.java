@@ -12,8 +12,7 @@
  */
 package org.camunda.bpm.engine.rest.sub.runtime.impl;
 
-import javax.ws.rs.core.Response.Status;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.ProcessEngineException;
 import org.camunda.bpm.engine.RuntimeService;
@@ -25,7 +24,8 @@ import org.camunda.bpm.engine.rest.sub.VariableResource;
 import org.camunda.bpm.engine.rest.sub.runtime.ProcessInstanceResource;
 import org.camunda.bpm.engine.runtime.ActivityInstance;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
-import org.codehaus.jackson.map.ObjectMapper;
+
+import javax.ws.rs.core.Response.Status;
 
 public class ProcessInstanceResourceImpl implements ProcessInstanceResource {
 

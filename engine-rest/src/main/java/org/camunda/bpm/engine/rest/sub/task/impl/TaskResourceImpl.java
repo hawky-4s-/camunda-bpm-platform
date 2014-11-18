@@ -12,14 +12,7 @@
  */
 package org.camunda.bpm.engine.rest.sub.task.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Request;
-import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.Variant;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.ProcessEngineException;
@@ -27,11 +20,7 @@ import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.form.FormData;
 import org.camunda.bpm.engine.rest.dto.VariableValueDto;
 import org.camunda.bpm.engine.rest.dto.converter.StringListConverter;
-import org.camunda.bpm.engine.rest.dto.task.CompleteTaskDto;
-import org.camunda.bpm.engine.rest.dto.task.FormDto;
-import org.camunda.bpm.engine.rest.dto.task.IdentityLinkDto;
-import org.camunda.bpm.engine.rest.dto.task.TaskDto;
-import org.camunda.bpm.engine.rest.dto.task.UserIdDto;
+import org.camunda.bpm.engine.rest.dto.task.*;
 import org.camunda.bpm.engine.rest.exception.InvalidRequestException;
 import org.camunda.bpm.engine.rest.exception.RestException;
 import org.camunda.bpm.engine.rest.hal.Hal;
@@ -44,7 +33,14 @@ import org.camunda.bpm.engine.rest.util.ApplicationContextPathUtil;
 import org.camunda.bpm.engine.task.IdentityLink;
 import org.camunda.bpm.engine.task.Task;
 import org.camunda.bpm.engine.variable.VariableMap;
-import org.codehaus.jackson.map.ObjectMapper;
+
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
+import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.Variant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class TaskResourceImpl implements TaskResource {
 
