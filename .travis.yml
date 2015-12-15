@@ -6,5 +6,10 @@ language: java
 jdk:
   - oraclejdk7
 install: mvn install -Ptomcat,h2,engine-integration -pl qa/integration-tests-engine -am -DskipTests -s settings/maven/nexus-settings.xml -B -q
+before_script:
+  - echo "$MAVEN_OPTS"
+  - echo "free -m"
+  - echo "mvn -version"
+  - echo "MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=128m'" > ~/.mavenrc
 script:
 - mvn verify -Ptomcat,h2,engine-integration -pl qa/integration-tests-engine -am -s settings/maven/nexus-settings.xml
